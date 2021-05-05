@@ -1,0 +1,96 @@
+body {
+  margin: 0;
+  text-align: center;
+}
+
+ul {
+  padding: 0;
+}
+
+button {
+  padding: 2px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+}
+
+.shopping_list {
+  width: 375px;
+  margin: auto;
+  background-color: rgb(235, 238, 252);
+  border-radius: 20px;
+}
+
+.header {
+  background: linear-gradient(
+    166deg,
+    rgba(237, 193, 211, 1) 0%,
+    rgba(219, 192, 216, 1) 35%,
+    rgba(127, 188, 242, 1) 100%
+  );
+  border-radius: 20px 20px 0 0;
+  height: 40px;
+  padding: 4px;
+  font-size: 24px;
+  color: aliceblue;
+}
+
+.item_list {
+  height: 556px;
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 32px;
+}
+
+.item_delete {
+  font-size: 16px;
+  transition: 300ms ease;
+}
+.item_delete:hover {
+  transform: scale(1.1);
+  color: red;
+}
+
+.item_divider {
+  width: 85%;
+  height: 1px;
+  background-color: lightgray;
+  margin: auto;
+}
+
+.footer {
+  background: linear-gradient(
+    166deg,
+    rgba(237, 193, 211, 1) 0%,
+    rgba(219, 192, 216, 1) 35%,
+    rgba(127, 188, 242, 1) 100%
+  );
+  border-radius: 0 0 20px 20px;
+}
+
+.footer_input {
+  padding: 0 4%;
+  width: 92%;
+  height: 32px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+
+.footer_button {
+  width: 42px;
+  height: 42px;
+  font-size: 28px;
+  color: white;
+  background-color: black;
+  border-radius: 50%;
+  transition: transform 200ms ease;
+}
+
+.footer_button:hover {
+  transform: scale(1.1);
+}
