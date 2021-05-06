@@ -1,22 +1,19 @@
 const addBtn = document.querySelector('.footer_button');
 const input = document.querySelector('.footer_input');
 const items = document.querySelector('.item_list');
-const item_delete = document.querySelector('.item_delete');
-
-
 
 
 function onAdd() {
 
-    //이건 그냥 장난 ㅋㅋ
-    if (input.value === '피자') {
-        input.value = '🍕';
-    };
-
     // 사용자가 입력한 텍스트를 받아옴.
     const text = input.value;
-    
 
+    //입력이 비어있을 경우
+    if(text === ''){
+        input.focus();
+        return;
+    }
+    
     //새로운 아이템(텍스트 + 쓰레기통)을 만듬.
     const item = document.createElement('li');
     item.setAttribute('class', 'item');
@@ -36,7 +33,6 @@ function onAdd() {
     const divider = document.createElement('div');
     divider.setAttribute('class', 'item_divider');
     
-
     item.appendChild(item_name);
     item.appendChild(item_delete);
 
@@ -44,7 +40,7 @@ function onAdd() {
     items.appendChild(divider);
 
     //인풋을 초기화.
-    input.value = " ";
+    input.value = "";
     input.focus();
 }
 
