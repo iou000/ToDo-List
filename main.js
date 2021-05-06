@@ -13,9 +13,24 @@ function onAdd() {
         input.focus();
         return;
     }
-    
+
     //새로운 아이템(텍스트 + 쓰레기통)을 만듬.
-    const item = document.createElement('li');
+    const itemBox = createItem(text);
+
+    // items 컨테이너에 새로 만든 아이템 추가.
+    items.appendChild(itemBox);
+    
+
+    //인풋을 초기화.
+    input.value = "";
+    input.focus();
+}
+
+function createItem(text) {
+
+    const itemBox = document.createElement('li');
+
+    const item = document.createElement('div');
     item.setAttribute('class', 'item');
 
     const item_name = document.createElement('span');
@@ -26,8 +41,7 @@ function onAdd() {
     item_delete.setAttribute('class', 'item_delete');
     item_delete.innerHTML = `<i class="fas fa-trash-alt"></i>`;
     item_delete.addEventListener('click', () => {
-        items.removeChild(item);
-        items.removeChild(divider);
+        items.removeChild(itemBox);
     });
 
     const divider = document.createElement('div');
@@ -36,15 +50,11 @@ function onAdd() {
     item.appendChild(item_name);
     item.appendChild(item_delete);
 
-    items.appendChild(item);
-    items.appendChild(divider);
+    itemBox.appendChild(item);
+    itemBox.appendChild(divider);
 
-    //인풋을 초기화.
-    input.value = "";
-    input.focus();
+    return itemBox;
 }
-
-
 
 input.addEventListener('keydown', (e) => {
     if (e.key ==='Enter') {
