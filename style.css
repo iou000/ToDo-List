@@ -14,6 +14,10 @@ button {
   background-color: transparent;
 }
 
+::placeholder {
+  color: lightgray;
+}
+
 .shopping_list {
   width: 375px;
   margin: auto;
