@@ -98,3 +98,11 @@ button {
 .footer_button:hover {
   transform: scale(1.1);
 }
+
+/* 글자가 너무 많으면 ...으로 생략 */
+.item_name {
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

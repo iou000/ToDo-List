@@ -2,30 +2,26 @@ const addBtn = document.querySelector('.footer_button');
 const input = document.querySelector('.footer_input');
 const items = document.querySelector('.item_list');
 
-
+// 리스트에 아이템을 추가하는 함수
 function onAdd() {
 
-    // 사용자가 입력한 텍스트를 받아옴.
     const text = input.value;
 
-    //입력이 비어있을 경우
     if(text === ''){
         input.focus();
         return;
     }
 
-    //새로운 아이템(텍스트 + 쓰레기통)을 만듬.
     const itemBox = createItem(text);
 
-    // items 컨테이너에 새로 만든 아이템 추가.
     items.appendChild(itemBox);
-    
+    itemBox.scrollIntoView({ block : 'end'});
 
-    //인풋을 초기화.
     input.value = "";
     input.focus();
 }
 
+// 리스트에 들어갈 아이템을 만드는 함수 
 function createItem(text) {
 
     const itemBox = document.createElement('li');
@@ -56,8 +52,9 @@ function createItem(text) {
     return itemBox;
 }
 
+
 input.addEventListener('keydown', (e) => {
-    if (e.key ==='Enter') {
+    if(e.keyCode === 13){
         onAdd();
     }
 });
