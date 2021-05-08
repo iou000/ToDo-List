@@ -21,11 +21,26 @@ function onAdd() {
     input.focus();
 }
 
-// 리스트에 들어갈 아이템을 만드는 함수 
+// 리스트에 들어갈 아이템을 만드는 함수
+let id = 0; //일단 이렇게 해줌(고유 id)
 function createItem(text) {
 
-    const itemBox = document.createElement('li');
+    const itemBox = document.createElement('div');
+    itemBox.setAttribute('class', 'itemBox');
+    itemBox.setAttribute('data-id', id);
 
+    itemBox.innerHTML = `
+        <li class="item">
+            <span class="item_name">${text}</span>
+            <button class="item_delete">
+                <i class="fas fa-trash-alt" data-id=${id}></i>
+            </button>
+        </li>
+        <div class="item_divider"></div>`;
+    id++;
+    return itemBox;
+
+    /*
     const item = document.createElement('div');
     item.setAttribute('class', 'item');
 
@@ -47,9 +62,7 @@ function createItem(text) {
     item.appendChild(item_delete);
 
     itemBox.appendChild(item);
-    itemBox.appendChild(divider);
-
-    return itemBox;
+    itemBox.appendChild(divider); */
 }
 
 
@@ -62,3 +75,11 @@ input.addEventListener('keydown', (e) => {
 addBtn.addEventListener('click', () => {
     onAdd();
 });
+
+items.addEventListener('click', (e) => {
+    const id = e.target.dataset.id;
+    if(id){ //id가 존재한다면
+        const toBeDelete = document.querySelector(`.itemBox[data-id="${id}"]`);
+        toBeDelete.remove();
+    }
+})
